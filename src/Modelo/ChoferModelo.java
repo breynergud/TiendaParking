@@ -1,5 +1,6 @@
-
 package Modelo;
+
+import Vista.vista_chofer;
 
 public class ChoferModelo {
 
@@ -38,36 +39,32 @@ public class ChoferModelo {
     }
 
     // Reglas de negocio del Chofer
-    public boolean validarChofer() {
-        // 1. Ningún campo puede estar vacío o nulo
+    public boolean validarChofer(vista_chofer obj_vista) {
         if (nombre_chofer == null || nombre_chofer.trim().equals("")) {
-            System.out.println("Error: El nombre del chofer no puede estar vacío.");
+            obj_vista.mostrar_error_nombre_vacio();
             return false;
         }
         if (licencia_chofer == null || licencia_chofer.trim().equals("")) {
-            System.out.println("Error: La licencia del chofer no puede estar vacía.");
+            obj_vista.mostrar_error_licencia_vacia();
             return false;
         }
         if (cedula_chofer == null || cedula_chofer.trim().equals("")) {
-            System.out.println("Error: La cédula del chofer no puede estar vacía.");
+            obj_vista.mostrar_error_cedula_vacia();
             return false;
         }
 
-        // 2. Nombre: solo letras y espacios (sin caracteres especiales ni números)
         if (!nombre_chofer.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$")) {
-            System.out.println("Error: El nombre del chofer no puede contener números ni caracteres especiales.");
+            obj_vista.mostrar_error_nombre_formato();
             return false;
         }
 
-        // 3. Licencia: exactamente 2 caracteres (1er caracter letra, 2do caracter número)
         if (!licencia_chofer.matches("^[a-zA-Z][0-9]$")) {
-            System.out.println("Error: La licencia debe tener exactamente 2 caracteres (primer carácter una letra y segundo un número, ej: A1).");
+            obj_vista.mostrar_error_licencia_formato();
             return false;
         }
 
-        // 4. Cédula: solo números (sin puntos, comas, guiones ni espacios)
         if (!cedula_chofer.matches("^[0-9]+$")) {
-            System.out.println("Error: La cédula solo debe contener números (sin puntos, comas ni espacios).");
+            obj_vista.mostrar_error_cedula_formato();
             return false;
         }
 

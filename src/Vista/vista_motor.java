@@ -23,4 +23,12 @@ public class vista_motor {
         System.out.println("Número de Serie: " + nserie);
         System.out.println("Tipo de Motor: " + tipo + "\n");
     }
+
+    public void mostrar_error_nserie_vacio() {
+        System.out.println("Error: El número de serie del motor no puede estar vacío.");
+    }
+
+    public void mostrar_error_tipo_vacio() {
+        System.out.println("Error: El tipo de motor no puede estar vacío.");
+    }
 }

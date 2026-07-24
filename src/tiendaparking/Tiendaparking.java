@@ -3,12 +3,15 @@ package tiendaparking;
 import Vista.vista_carro;
 import Vista.vista_chofer;
 import Vista.vista_motor;
+import Vista.vista_pasajero;
 import Controlador.controlador_carro;
 import Controlador.controlador_chofer;
 import Controlador.controlador_motor;
+import Controlador.controlador_pasajero;
 import Modelo.CarroModelo;
 import Modelo.ChoferModelo;
 import Modelo.MotorModelo;
+import Modelo.PasajeroModelo;
 
 public class Tiendaparking {
 
@@ -25,5 +28,9 @@ public class Tiendaparking {
         vista_chofer vista_chofer = new vista_chofer();
         controlador_chofer ctrl_chofer = new controlador_chofer(vista_chofer);
         ChoferModelo chofer = ctrl_chofer.procesar_datos();
+
+        vista_pasajero vista_pasajero = new vista_pasajero();
+        controlador_pasajero ctrl_pasajero = new controlador_pasajero(vista_pasajero);
+        PasajeroModelo pasajero = ctrl_pasajero.procesar_datos();
     }
 }

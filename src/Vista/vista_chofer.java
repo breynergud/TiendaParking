@@ -1,6 +1,5 @@
 package Vista;
 
-import Controlador.controlador_chofer;
 import java.util.Scanner;
 
 public class vista_chofer {
@@ -31,5 +30,29 @@ public class vista_chofer {
         System.out.println("Nombre: " + nombre);
         System.out.println("Licencia: " + licencia);
         System.out.println("Cédula: " + cedula + "\n");
+    }
+
+    public void mostrar_error_nombre_vacio() {
+        System.out.println("Error: El nombre del chofer no puede estar vacío.");
+    }
+
+    public void mostrar_error_licencia_vacia() {
+        System.out.println("Error: La licencia del chofer no puede estar vacía.");
+    }
+
+    public void mostrar_error_cedula_vacia() {
+        System.out.println("Error: La cédula del chofer no puede estar vacía.");
+    }
+
+    public void mostrar_error_nombre_formato() {
+        System.out.println("Error: El nombre del chofer no puede contener números ni caracteres especiales.");
+    }
+
+    public void mostrar_error_licencia_formato() {
+        System.out.println("Error: La licencia debe tener exactamente 2 caracteres (primer carácter una letra y segundo un número, ej: A1).");
+    }
+
+    public void mostrar_error_cedula_formato() {
+        System.out.println("Error: La cédula solo debe contener números (sin puntos, comas ni espacios).");
     }
 }

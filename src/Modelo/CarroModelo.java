@@ -1,5 +1,6 @@
-
 package Modelo;
+
+import Vista.vista_carro;
 
 public class CarroModelo {
 
@@ -8,7 +9,6 @@ public class CarroModelo {
     String placa_carro = "";
 
     public CarroModelo(String dato_marca, String dato_color, String dato_placa) {
-
         this.marca_carro = dato_marca;
         this.color_carro = dato_color;
         this.placa_carro = dato_placa;
@@ -39,28 +39,27 @@ public class CarroModelo {
     }
 
     // Reglas de negocio del Carro
-    public boolean validarCarro() {
+    public boolean validarCarro(vista_carro obj_vista) {
         if (marca_carro == null || marca_carro.trim().equals("")) {
-            System.out.println("Error: La marca del carro no puede estar vacía.");
+            obj_vista.mostrar_error_marca_vacia();
             return false;
         }
         if (color_carro == null || color_carro.trim().equals("")) {
-            System.out.println("Error: El color del carro no puede estar vacío.");
+            obj_vista.mostrar_error_color_vacio();
             return false;
         }
         if (placa_carro == null || placa_carro.trim().equals("")) {
-            System.out.println("Error: La placa del carro no puede estar vacía.");
+            obj_vista.mostrar_error_placa_vacia();
             return false;
         }
         return true;
     }
 
-    public void buscar_placa(String info_placa) {
+    public void buscar_placa(String info_placa, vista_carro obj_vista) {
         if (this.placa_carro.equalsIgnoreCase(info_placa)) {
-            System.out.println("¡Placa encontrada! Corresponde a la marca: " + marca_carro);
+            obj_vista.mostrar_placa_encontrada(marca_carro);
         } else {
-            System.out.println("La placa no coincide con este carro.");
+            obj_vista.mostrar_placa_no_coincide();
         }
     }
-
 }

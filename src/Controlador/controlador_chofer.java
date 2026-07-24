@@ -10,10 +10,13 @@ public class controlador_chofer {
     }
     
     public ChoferModelo procesar_datos(){
-        String dato_nombre = this.obj_vista.tomar_nombre();
-        String dato_licencia = this.obj_vista.tomar_licencia();
-        String dato_cedula = this.obj_vista.tomar_cedula();
-        ChoferModelo obj_chofer = new ChoferModelo (dato_nombre, dato_licencia, dato_cedula);
+        ChoferModelo obj_chofer;
+        do {
+            String dato_nombre = this.obj_vista.tomar_nombre();
+            String dato_licencia = this.obj_vista.tomar_licencia();
+            String dato_cedula = this.obj_vista.tomar_cedula();
+            obj_chofer = new ChoferModelo (dato_nombre, dato_licencia, dato_cedula);
+        } while (!obj_chofer.validarChofer(this.obj_vista));
         
         // La vista muestra los datos ingresados
         this.obj_vista.mostrar_datos(obj_chofer.getNombre_chofer(), obj_chofer.getLicencia_chofer(), obj_chofer.getCedula_chofer());

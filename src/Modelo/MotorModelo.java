@@ -1,5 +1,6 @@
-
 package Modelo;
+
+import Vista.vista_motor;
 
 public class MotorModelo {
 
@@ -11,13 +12,13 @@ public class MotorModelo {
         this.tipo_motor = dato_tipo;
     }
 
-    public boolean validarMotor() {
+    public boolean validarMotor(vista_motor obj_vista) {
         if (nserie_motor == null || nserie_motor.trim().equals("")) {
-            System.out.println("Error: El número de serie del motor no puede estar vacío.");
+            obj_vista.mostrar_error_nserie_vacio();
             return false;
         }
         if (tipo_motor == null || tipo_motor.trim().equals("")) {
-            System.out.println("Error: El tipo de motor no puede estar vacío.");
+            obj_vista.mostrar_error_tipo_vacio();
             return false;
         }
         return true;
@@ -46,5 +47,4 @@ public class MotorModelo {
     public void setTipo_motor(String tipo_motor) {
         this.tipo_motor = tipo_motor;
     }
-
 }
